@@ -1,16 +1,31 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-</template>
+<script setup>
+  import { supabase } from '../components/TheWelcome.vue'
+  const todos = ref([])
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+  async function getTodos() {
+    const { data: todos } = await supabase.from('todos').select()
+    countries.value = todos
   }
-}
-</style>
 
+  onMounted(() => {
+    getTodos()
+  })
+
+  const { data, error } = await supabase.auth.signUp({
+  email: 'example@email.com',
+  password: 'example-password',
+  
+})
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
+</script>
+
+<template>
+  <ul>
+    <li v-for="todo in todos" :key="todo.id">{{ todo.name }}</li>
+  </ul>
+</template>

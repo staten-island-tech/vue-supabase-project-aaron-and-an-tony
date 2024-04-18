@@ -1,6 +1,22 @@
-<script setup lang="ts">
+<script setup >
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { onMounted, ref } from 'vue'
+import Managementpage from './components/Managementpage.vue'
+import Signupcomp from './components/Signupcomp.vue'
+import { supabase } from './supabase'
+
+const session = ref()
+
+onMounted(() => {
+  supabase.auth.getSession().then(({ data }) => {
+    session.value = data.session
+  })
+
+  supabase.auth.onAuthStateChange((_, _session) => {
+    session.value = _session
+  })
+})
 </script>
 
 <template>
@@ -13,8 +29,13 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/signup">Signup</RouterLink>
       </nav>
     </div>
+    <div class="container" style="padding: 50px 0 100px 0">
+    <Managementpage v-if="session" :session="session" />
+    <Signupcomp v-else />
+  </div>
   </header>
 
   <RouterView />

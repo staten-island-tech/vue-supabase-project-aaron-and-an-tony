@@ -2,8 +2,8 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { onMounted, ref } from 'vue'
-import Managementpage from './components/Managementpage.vue'
-import Signupcomp from './components/Signupcomp.vue'
+import Account from './components/Account.vue'
+import Auth from './components/Auth.vue'
 import { supabase } from './supabase'
 
 const session = ref()
@@ -33,8 +33,8 @@ onMounted(() => {
       </nav>
     </div>
     <div class="container" style="padding: 50px 0 100px 0">
-    <Managementpage v-if="session" :session="session" />
-    <Signupcomp v-else />
+    <Account v-if="session" :session="session" />
+    <Auth v-else />
   </div>
   </header>
 

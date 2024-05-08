@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Signup from '@/views/Signup.vue'
+import Stereograms from '@/views/stereograms.vue'
 import AboutView from '@/views/AboutView.vue'
 
 const router = createRouter({
@@ -20,9 +20,9 @@ const router = createRouter({
       component: AboutView
     },
     {
-      path: '/signup',
-      name: 'signup',
-      component: Signup
+      path: '/stereograms',
+      name: 'stereograms',
+      component: Stereograms
     }
   ]
 })

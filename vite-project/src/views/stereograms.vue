@@ -6,8 +6,11 @@
 </template>
 
 <script>
-// import { ref, onMounted } from 'vue'
-// import {}
+import { supabase } from '../supabase'
+const { data } = supabase
+  .storage
+  .from('public-bucket')
+  .getPublicUrl('Stereograms/avatar1.png')
 </script>
 
 <style lang="scss" scoped>

@@ -1,6 +1,6 @@
 <template>
     <router-link>
-        <h3> image</h3>
+        <h3><img src='ImageUrl' alt="Dinosaur" /></h3>
         <h2> image.id</h2>
     </router-link>
 </template>
@@ -9,8 +9,10 @@
 import { supabase } from '../supabase'
 const { data } = supabase
   .storage
-  .from('public-bucket')
-  .getPublicUrl('Stereograms/avatar1.png')
+  .from('Stereograms')
+  .getPublicUrl('Stereograms/elephant.png')
+  setImageUrl(data.publicUrl) 
+
 </script>
 
 <style lang="scss" scoped>

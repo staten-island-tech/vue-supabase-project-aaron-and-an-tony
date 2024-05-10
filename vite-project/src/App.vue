@@ -29,7 +29,7 @@ onMounted(() => {
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/signup">Signup</RouterLink>
+        <RouterLink to="/signup">Gallery</RouterLink>
       </nav>
     </div>
     <div class="container" style="padding: 50px 0 100px 0">

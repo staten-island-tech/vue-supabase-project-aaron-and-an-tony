@@ -42,3 +42,10 @@ const handleLogin = async () => {
     </div>
   </form>
 </template>
+
+<template>
+  <div>
+    <h2>Username/Email</h2>
+    <input class="login" required type="email" type="text">
+  </div>
+</template>

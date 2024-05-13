@@ -1,11 +1,16 @@
 <template>
-    <router-link>
-        <h3><img src='ImageUrl' alt="Dinosaur" /></h3>
-        <h2> image.id</h2>
-    </router-link>
+<div class="perks">
+  <div class="title">Shop</div>
+  <createimages
+    v-for="(destination,index) in data"
+    :key="index"
+    :Destination="destination"
+  /> 
+</div> 
 </template>
 
-<script>
+<script setup>
+import createimages from '../components/createimages.vue';
 import { supabase } from '../supabase'
 const { data } = supabase
   .storage

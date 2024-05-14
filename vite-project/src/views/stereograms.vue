@@ -11,13 +11,11 @@
 
 <script setup>
 import createimages from '../components/createimages.vue';
-import { supabase } from '../supabase'
-const { data } = supabase
-  .storage
-  .from('Stereograms')
-  .getPublicUrl('Stereograms/elephant.png')
-  setImageUrl(data.publicUrl) 
-
+import { supabase } from '../supabase';
+const { data } = await supabase
+.from('Stereogramtable')
+.select('imageurls')
+console.log(data)
 </script>
 
 <style lang="scss" scoped>

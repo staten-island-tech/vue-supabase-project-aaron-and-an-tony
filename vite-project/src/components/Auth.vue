@@ -43,9 +43,9 @@ const handleLogin = async () => {
   </form>
 </template>
 
-<template>
+<!-- <template>
   <div>
     <h2>Username/Email</h2>
-    <input class="login" required type="email" type="text">
+    <input class="login" required type="email">
   </div>
-</template>
+</template> -->

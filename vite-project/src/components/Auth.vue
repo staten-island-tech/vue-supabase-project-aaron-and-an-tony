@@ -41,11 +41,21 @@ const handleLogin = async () => {
       </div>
     </div>
   </form>
+  
+  <form action="">
+    <div class="sign-in section">
+      <h2>Sign In</h2>
+      <h3>Username</h3>
+      <input class="log-in" type="text" placeholder="Email" v-model="email">
+      <h3>Password</h3>
+      <input class="log-in" type="text" placeholder="Password">
+      <div>
+        <button class="sign-in button">Sign In</button>
+      </div>
+    </div>
+  </form>
 </template>
 
-<!-- <template>
-  <div>
-    <h2>Username/Email</h2>
-    <input class="login" required type="email">
-  </div>
-</template> -->
+<style lang="scss" scoped>
+
+</style>

@@ -1,26 +1,19 @@
 <template>
 <div class="perks">
   <div class="title">Gallery</div>
-  <createimages
-    v-for="(destination,index) in data"
-    :key="index"
-    :Destination="destination"
-  /> 
 </div> 
 </template>
 
 <script setup>
-import createimages from '../components/createimages.vue';
+import { onMounted, ref } from 'vue';
 import { supabase } from '../supabase';
-import { ref } from 'vue';
-async function yay() {
-const { data } = await supabase
-.from('Stereogramtable')
-.select('imageurls')
-console.log(data);
-return data;
+let pics = ref('getimages');
+async function getimages(){
+  const { data } = await supabase.from('Stereogramtable').select("imageurls")
+  pics = data
+  console.log(data)
 }
-const data = yay()
+onMounted(()=>(getimages()))
 </script>
 
 <style lang="scss" scoped>

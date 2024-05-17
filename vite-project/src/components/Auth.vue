@@ -88,6 +88,7 @@ const handleLogin = async () => {
 
 .sign-in button:active {
   scale: 0.92;
+  padding: 10px;
 }
 
 .sign-in button:hover {
@@ -103,12 +104,14 @@ const handleLogin = async () => {
 .log-in {
   position: relative;
   width: 196px;
+  padding-top: 25px;
 }
 
 .log-in input {
   position: relative;
   width: 100%;
   padding: 20px 10px 10px;
+  margin-top: 5px;
   background: transparent;
   outline: none;
   box-shadow: none;

@@ -71,7 +71,8 @@ const handleLogin = async () => {
 <style scoped>
 .sign-in button {
   font-size: 1.2rem;
-  padding: 1rem 2.5rem;
+  margin-top: 20px;
+  padding: 15px 35px;
   border: none;
   outline: none;
   border-radius: 0.4rem;

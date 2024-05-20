@@ -1,6 +1,6 @@
 <template>
-<div class="perks">
-  <div class="title">Gallery</div>
+<div class="images">
+  <div id="container"></div>
 </div> 
 </template>
 
@@ -16,8 +16,21 @@ async function getimages(){
   }
   pics = data
   console.log(data)
+  let x = Array.from(pics);
+        function create(blah) {
+            blah.map((result) => {
+                const card = document.createElement('div');
+                card.classlist = 'card'
+                const desc = `<div class=card>
+                <img class=card-img alt ="" src="${result.imageurls}"></div>`
+                container.innerHTML += desc;
+            })
+        }
+        create(x)
+        console.log(x)
 }
 onMounted(()=>(getimages()))
+
 </script>
 
 <style lang="scss" scoped>

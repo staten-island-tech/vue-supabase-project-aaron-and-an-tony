@@ -36,7 +36,7 @@ onMounted(() => {
     <Account v-if="session" :session="session" />
     <Auth v-else />
   </div>
-  </header>
+</header>
 
   <RouterView />
 </template>

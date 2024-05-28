@@ -16,13 +16,26 @@ async function getimages(){
   }
   pics = data
   console.log(data)
+
   let x = Array.from(pics);
         function create(blah) {
             blah.map((result) => {
+                const correct = result.correct
+                function check(){
+                  if (input == result.) {
+                    
+                  } else {
+                    
+                  }
+                }
                 const card = document.createElement('div');
                 card.classlist = 'card'
                 const desc = `<div class=card>
-                <img class=card-img alt ="" src="${result.imageurls}"></div>`
+                <img class=cardimg alt ="" src="${result.imageurls}"></div>
+                <form action="" id="form">
+                <label for="first/name">Answer</label>
+                <input type="text" name="" class="" />
+                <input type="submit" value = "Click to Submit" id="submit"/>`
                 container.innerHTML += desc;
             })
         }
@@ -33,6 +46,9 @@ onMounted(()=>(getimages()))
 
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.cardimg {
+  width: 60px;
+  height: 60px;
+}
 </style>  

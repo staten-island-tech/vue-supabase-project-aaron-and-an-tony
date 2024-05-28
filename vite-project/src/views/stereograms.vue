@@ -35,4 +35,4 @@ onMounted(()=>(getimages()))
 
 <style lang="scss" scoped>
 
-</style>
+</style>  

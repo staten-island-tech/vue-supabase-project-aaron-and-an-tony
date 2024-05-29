@@ -20,22 +20,18 @@ async function getimages(){
   let x = Array.from(pics);
         function create(blah) {
             blah.map((result) => {
-                const correct = result.correct
+                const correct = result.answer
                 function check(){
-                  if (input == result.) {
-                    
+                  if (input = correct) {
+                    then //add picture to profile
                   } else {
-                    
+                    return //WRONG
                   }
                 }
                 const card = document.createElement('div');
                 card.classlist = 'card'
                 const desc = `<div class=card>
-                <img class=cardimg alt ="" src="${result.imageurls}"></div>
-                <form action="" id="form">
-                <label for="first/name">Answer</label>
-                <input type="text" name="" class="" />
-                <input type="submit" value = "Click to Submit" id="submit"/>`
+                <img class="card" alt ="Stereogram" src="${result.imageurls}"></div>`
                 container.innerHTML += desc;
             })
         }
@@ -47,8 +43,8 @@ onMounted(()=>(getimages()))
 </script>
 
 <style scoped>
-.cardimg {
-  width: 60px;
+.card {
+  max-width: 100px;
   height: 60px;
 }
 </style>  

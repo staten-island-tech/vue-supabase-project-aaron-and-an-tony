@@ -44,7 +44,7 @@ onMounted(()=>(getimages()))
 
 <style scoped>
 .card {
-  max-width: 100px;
+  width: 400px;
   height: 60px;
 }
 </style>  

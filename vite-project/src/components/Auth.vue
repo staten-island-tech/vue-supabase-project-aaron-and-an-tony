@@ -52,7 +52,7 @@ const handleLogin = async () => {
     <div class="sign-in section">
       <h2>Sign In</h2>
       <div class="log-in">
-        <input required="required" type="text" v-model="email"/>
+        <input required="required" type="text"/>
         <span>Username</span>
         <i></i>
       </div>

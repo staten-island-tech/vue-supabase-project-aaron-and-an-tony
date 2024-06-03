@@ -46,5 +46,6 @@ onMounted(()=>(getimages()))
 .card {
   width: 400px;
   height: 60px;
+  border: 2px;
 }
 </style>  

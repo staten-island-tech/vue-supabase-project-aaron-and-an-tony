@@ -7,7 +7,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { supabase } from '../supabase';
-const pics = ref(getimages);
+const pics = ref([]);
 async function getimages(){
   const { data, error } = await supabase.from('pictures').select('*')
   if (error) {
@@ -15,9 +15,9 @@ async function getimages(){
     return;
   }
   console.log(data)
-  return data
+  const pics = data
 }
-
+console.log(pics)
 onMounted(()=>(getimages()))
 
 </script>

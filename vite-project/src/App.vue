@@ -1,8 +1,8 @@
-<script setup >
+<script setup>
 import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue';
-import { userSessionStore } from './stores/userSession';
-import { supabase } from './utils/supabase';
+import { userSessionStore } from './stores/userSession.js';
+import { supabase } from './supabase.js';
 // initialize the userSession store
 const userSession = userSessionStore()
 // listen for auth events (e.g. sign in, sign out, refresh)

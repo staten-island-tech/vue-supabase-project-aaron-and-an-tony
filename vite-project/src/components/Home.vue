@@ -8,11 +8,11 @@
     <button className="p-4 bg-blue-400 text-white rounded-xl hover:bg-blue-500" @click="logOut" v-else>
       Sign Out
     </button>
-  </template>
+</template>
   
   <script setup>
-  import { supabase } from '../utils/supabase';
-  import { userSessionStore } from '../stores/userSession';
+  import { supabase } from '../supabase.js';
+  import { userSessionStore } from '../stores/userSession.js';
   import router from '../router';
   // initialize userSession store
   const userSession = userSessionStore()

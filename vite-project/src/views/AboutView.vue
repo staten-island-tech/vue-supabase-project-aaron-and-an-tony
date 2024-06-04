@@ -23,4 +23,4 @@ onMounted(() => {
     <Auth v-else />
   </div>
 
-</template>
+</template>../components/auth.store.js

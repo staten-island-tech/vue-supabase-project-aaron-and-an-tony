@@ -17,14 +17,32 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: AboutView
+      component: AboutView,
+      meta: {
+        needsAuth: true
+      }
     },
     {
       path: '/stereograms',
       name: 'stereograms',
-      component: Stereograms
+      component: Stereograms,
+      meta: {
+        needsAuth: true
+      }
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  const userSession = userSessionStore()
 
+  if (to.meta.needsAuth) {
+    if (userSession.session) {
+      return next()
+    } else {
+      return next('/')
+    }
+  }
+
+  return next()
+})
 export default router

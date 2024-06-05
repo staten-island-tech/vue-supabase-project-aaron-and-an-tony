@@ -4,7 +4,7 @@ import { supabase } from "../supabase";
 
 const loading = ref(false);
 const email = ref("");
-
+// this entire file is kinda unused, just the supabase vue 3 basic guide
 const handleLogin = async () => {
   try {
     loading.value = true;

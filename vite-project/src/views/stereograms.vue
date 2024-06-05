@@ -44,15 +44,23 @@ onMounted(async()=>{
 
 const checkAnswer = async(reference, answer)=>{
   let ans = document.getElementById(reference).value
+  console.log(profiles.value)
+  let profile = profiles.value.filter((x)=>{
+    return x.id == user.value.id
+  })
+  profile = profile[0]
   if (ans.toLowerCase() == answer.toLowerCase()) {
-    if (!profiles.value.Completions){
-      profiles.value.Completions = []
-      const { error } = await supabase.from('profiles').update({ id: user.value.id }).eq('Completions', [])
-    }else if (!profiles.value.Completions.includes(reference)){
-      profiles.value.Completions.append(reference)
-      const { error } = await supabase.from('profiles').update({ id: user.value.id }).eq('Completions', profiles.value.Completions)
+    if (!profile.Completions.includes(reference)){
+      profile.Completions.push(reference)
     }
+    console.log(JSON.parse(JSON.stringify(profile)))
+    const { error } = await supabase.from('profiles').update({ Completions: profile.Completions }).eq('id', user.value.id)
+    const { data:raw_profiles, error:err } = await supabase.from('profiles').select('*')
+    profiles.value = raw_profiles
+    console.log(profile.username)
+    const { error: err2 } = await supabase.from('leaderboard').insert({ username: profile.username, score: profile.Completions.length })
   }
+
 }
 
 </script>

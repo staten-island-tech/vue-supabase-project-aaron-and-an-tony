@@ -22,4 +22,5 @@
         session.value = _session
       })
     })
+    // this is the USER HUB PAGE, WILL DISPLAY PERSONAL PROFILE AND THE PROFILES OF OTHERS
 </script>

@@ -4,7 +4,7 @@
     <form class="row flex-center flex" @submit.prevent="signUpNewUser">
     <div class="col-6 form-widget">
       <h1 class="header">Supabase + Vue 3</h1>
-      <p class="description">Sign in via magic link with your email below</p>
+      <p class="description">Sign up with an email and password</p>
       <div>
         <input class="inputField" required type="email" placeholder="Your email" v-model="email" />
         <input class="inputField" required type="password" placeholder="Your password" v-model="password" />
@@ -29,12 +29,14 @@
 </template>
   
   <script setup>
+  // THIS IS THE LOG IN PAGE
   import { supabase } from '../supabase.js';
   import { userSessionStore } from '../stores/userSession.js';
   import {ref} from 'vue'
   import router from '../router';
   // initialize userSession store
   const userSession = userSessionStore()
+  // 
   // login function
   const loading = ref(false);
   const email = ref("");
@@ -56,6 +58,7 @@
       alert(error.message)
     }
   }
+  // sign up function
   const signUpNewUser = async () => {
     try {
   const { error } = await supabase.auth.signUp({email: email.value, password: password.value,}) 

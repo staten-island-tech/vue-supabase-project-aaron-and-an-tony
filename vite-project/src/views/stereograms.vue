@@ -10,7 +10,7 @@ import { onMounted, ref } from 'vue';
 import { supabase } from '../supabase';
 import Gallery from '../components/Gallery.vue'
 import NavBar from '../components/NavBar.vue'
-
+const session = ref()
 let pics = ref('getimages');
 async function getimages(){
   const { data, error } = await supabase.from('pictures').select('*')
@@ -34,5 +34,5 @@ async function getimages(){
         console.log(x)
 }
 getimages()
-
+// DOES NOT WORK WITH SESSION DATA IDK WHY !!!!!
 </script>

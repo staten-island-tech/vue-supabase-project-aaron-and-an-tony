@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Stereograms from '@/views/stereograms.vue'
-import AboutView from '@/views/AboutView.vue'
 import Protected from '@/views/Protected.vue'
 import { userSessionStore } from '../stores/userSession.js';
 
@@ -12,17 +11,6 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: AboutView,
-      meta: {
-        needsAuth: true
-      }
     },
     {
       path: '/stereograms',
@@ -37,14 +25,14 @@ const router = createRouter({
       name: 'protected',
       component: Protected,
       meta: {
-        needsAuth: true
+        needsAuth: true 
       }
     },
   ]
 })
 router.beforeEach((to, from, next) => {
   const userSession = userSessionStore()
-
+// THIS CHECKS FOR AUTHENTICATION TO PREVENT ACCESSING LOG IN REQUIRED PAGES
   if (to.meta.needsAuth) {
     if (userSession.session) {
       return next()

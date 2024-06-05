@@ -18,8 +18,6 @@ import { supabase } from '../supabase'
 import { onMounted, ref, toRefs } from 'vue'
 import router from '../router';
 
-const props = defineProps(['session'])
-const { session } = toRefs(props)
 
 const loading = ref(true)
 const Wins = ref('')

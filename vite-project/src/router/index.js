@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Stereograms from '@/views/stereograms.vue'
 import Protected from '@/views/Protected.vue'
+import Leaderboard from '@/views/Leaderboard.vue'
 import { userSessionStore } from '../stores/userSession.js';
 
 const router = createRouter({
@@ -28,6 +29,14 @@ const router = createRouter({
         needsAuth: true 
       }
     },
+    {
+      path: '/leaderboard',
+      name: 'leaderboard',
+      component: Leaderboard,
+      meta: {
+        needsAuth: true
+      }
+    }
   ]
 })
 router.beforeEach((to, from, next) => {

@@ -8,6 +8,7 @@ const { session } = toRefs(props)
 
 const loading = ref(true)
 const username = ref('')
+const email = ref('')
 
 onMounted(() => {
   getProfile()
@@ -71,7 +72,7 @@ const logOut = async () => {
   <form class="form-widget" @submit.prevent="updateProfile">
     <div>
       <label for="email">Email</label>
-      <input id="email" type="text" :value="session.user.email" disabled />
+      <input id="email" type="text" :value="session.user.email" disabled/>
     </div>
     <div>
       <label for="username">Name</label>

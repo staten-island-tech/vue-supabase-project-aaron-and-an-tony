@@ -1,6 +1,5 @@
 <template>
     <div>
-      {{ userSession.session }}
     </div>    
     <form class="row flex-center flex" @submit.prevent="signUpNewUser">
     <div class="col-6 form-widget">
@@ -38,11 +37,11 @@
   const userSession = userSessionStore()
   // login function
   const loading = ref(false);
-  const email = ref('');
-  const password = ref('');
+  const email = ref("");
+  const password = ref("");
   const login = async () => {
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email: 'anthonykl@nycstudents.net', password: '123456' })
+      const { error } = await supabase.auth.signInWithPassword({ email: email.value, password: password.value })
       if (error) throw error
     } catch (error) {
       alert(error.message)
@@ -59,7 +58,7 @@
   }
   const signUpNewUser = async () => {
     try {
-  const { error } = await supabase.auth.signUp({email: 'anthonykl@nycstudents.net', password: '123456',}) 
+  const { error } = await supabase.auth.signUp({email: email.value, password: password.value,}) 
   if (error) throw error
 }catch(error){
       alert(error.message)

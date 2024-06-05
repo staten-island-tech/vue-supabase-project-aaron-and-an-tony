@@ -1,28 +1,25 @@
 <template>
-    <div>
-      {{ userSession.session }}
-    </div>    
-    <button className="p-4 bg-blue-400 text-white rounded-xl hover:bg-blue-500" @click="logOut">
-      Sign Out
-    </button>
-
+    <div class="container" style="padding: 50px 0 100px 0">
+        <Account v-if="session" :session="session" />
+        <NavBar v-else />
+      </div>
+    
 </template>
-  
-  <script setup>
-  import { supabase } from '../supabase.js';
-  import { userSessionStore } from '../stores/userSession.js';
-  import {ref} from 'vue'
-  import router from '../router';
-  // initialize userSession store
-  const userSession = userSessionStore()
-  // logout function
-  const logOut = async () => {
-    try {
-      const { error } = await supabase.auth.signOut().then(router.push('/'))
-      if(error) throw error
-    } catch(error){
-      alert(error.message)
-    }
-  }
-
-  </script>
+    
+<script setup>
+    import { onMounted, ref } from 'vue';
+    import { supabase } from '../supabase';
+    import Account from '../components/Account.vue'
+    import NavBar from '../components/NavBar.vue'
+    const session = ref()
+    
+    onMounted(() => {
+      supabase.auth.getSession().then(({ data }) => {
+        session.value = data.session
+      })
+    
+      supabase.auth.onAuthStateChange((_, _session) => {
+        session.value = _session
+      })
+    })
+</script>

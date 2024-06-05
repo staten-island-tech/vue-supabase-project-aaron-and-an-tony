@@ -1,22 +1,20 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { RouterView } from 'vue-router'
+import NavBar from './components/NavBar.vue';
+import { userSessionStore } from './stores/userSession.js';
+import { supabase } from './supabase.js';
+// initialize the userSession store
+const userSession = userSessionStore()
+// listen for auth events (e.g. sign in, sign out, refresh)
+// set session based on the auth event
+supabase.auth.onAuthStateChange((event, session) => {
+  console.log(event)
+  userSession.session = session
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  <NavBar />
   <RouterView />
 </template>
 
@@ -82,4 +80,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style>
+</style>./components/auth.store.js

@@ -47,10 +47,11 @@ const checkAnswer = async(reference, answer)=>{
   if (ans.toLowerCase() == answer.toLowerCase()) {
     if (!profiles.value.Completions){
       profiles.value.Completions = []
-      const { error } = await supabase.from('profiles').update({ id: user.value.id }).eq('Completions', [])
-    }else if (!profiles.value.Completions.includes(reference)){
-      profiles.value.Completions.append(reference)
-      const { error } = await supabase.from('profiles').update({ id: user.value.id }).eq('Completions', profiles.value.Completions)
+      const { error } = await supabase.from('profiles').update({ id: user.value.id}).eq('Completions', [{}])
+    }else if (!profiles.value.Completions.includes({reference})){
+      console.log(profiles)
+      profiles.value.Completions.push({reference})
+      const { error } = await supabase.from('profiles').update({ id: user.value.id }).eq('Completions', [profiles.value.Completions])
     }
   }
 }

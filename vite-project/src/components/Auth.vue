@@ -48,24 +48,6 @@ const handleLogin = async () => {
     </div>
   </form>
 
-  <form action="">
-    <div class="sign-in section">
-      <h2>Sign In</h2>
-      <div class="log-in">
-        <input required="required" type="text"/>
-        <span>Username</span>
-        <i></i>
-      </div>
-      <div class="log-in">
-        <input required="required" type="text" />
-        <span>Password</span>
-        <i></i>
-      </div>
-      <div>
-        <button class="sign-in button">Sign In</button>
-      </div>
-    </div>
-  </form>
 </template>
 
 <style scoped>

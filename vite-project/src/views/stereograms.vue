@@ -1,12 +1,16 @@
 <template>
-<div class="images">
+  <div class="container" style="padding: 50px 0 100px 0">
+  <Gallery v-if="session" :session="session"/> 
   <div id="container"></div>
-</div> 
+  </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
 import { supabase } from '../supabase';
+import Gallery from '../components/Gallery.vue'
+import NavBar from '../components/NavBar.vue'
+const session = ref()
 let pics = ref('getimages');
 async function getimages(){
   const { data, error } = await supabase.from('pictures').select('*')
@@ -16,36 +20,19 @@ async function getimages(){
   }
   pics = data
   console.log(data)
-
   let x = Array.from(pics);
         function create(blah) {
             blah.map((result) => {
-                const correct = result.answer
-                function check(){
-                  if (input = correct) {
-                    then //add picture to profile
-                  } else {
-                    return //WRONG
-                  }
-                }
                 const card = document.createElement('div');
                 card.classlist = 'card'
                 const desc = `<div class=card>
-                <img class="card" alt ="Stereogram" src="${result.imageurls}"></div>`
+                <img class=card-img alt ="" src="${result.imageurls}"></div>`
                 container.innerHTML += desc;
             })
         }
         create(x)
         console.log(x)
 }
-onMounted(()=>(getimages()))
-
+getimages()
+// DOES NOT WORK WITH SESSION DATA IDK WHY !!!!!
 </script>
-
-<style scoped>
-.card {
-  width: 400px;
-  height: 60px;
-  border: 2px;
-}
-</style>  

@@ -54,5 +54,5 @@ const checkAnswer = async(reference, answer)=>{
     }
   }
 }
-// DOES NOT WORK WITH SESSION DATA IDK WHY !!!!!
+
 </script>
